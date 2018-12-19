@@ -22,15 +22,19 @@ import java.util.List;
 public class HomeViewModel extends ViewModel {
 
     private FirebaseUser mFirebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
     private MutableLiveData<List<Attendance>> mAttendanceLiveData = new MutableLiveData<>();
     private MutableLiveData<Boolean> mCreateAttendanceProgressTracker = new MutableLiveData<>();
     private MutableLiveData<List<Attendance>> mFilterLiveData = new MutableLiveData<>();
+
     private DatabaseReference mDatabaseReference = FirebaseDatabase.getInstance()
             .getReference(Util.NODES.ATTENDANCE).child(mFirebaseUser.getUid());
+
     private List<Attendance> mCached = new ArrayList<>();
 
     /*
-    * List currently logged in user's attendance
+    * List currently logged in user's attendance, it first check if the data is already cached.
+    * useful for restoring data when device orientation changed and activity is teared down and recreated
     * */
     public void listAttendance() {
 
@@ -64,7 +68,6 @@ public class HomeViewModel extends ViewModel {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                L.wtf(databaseError.toException());
                 //post null in case of Error
                 mAttendanceLiveData.postValue(null);
             }
@@ -110,7 +113,6 @@ public class HomeViewModel extends ViewModel {
     * */
     public boolean isAWeekend(int day, int month, int year) {
 
-        L.fine("Month => " + month);
         Calendar calendar = Calendar.getInstance();
         calendar.set(year, month, day);
         int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
