@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "466654276770",
+    "firebase_url": "https://suchy-187106.firebaseio.com",
+    "project_id": "suchy-187106",
+    "storage_bucket": "suchy-187106.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:466654276770:android:14b56ac7e4709992",
+        "android_client_info": {
+          "package_name": "com.eattandance.app.eattendance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "466654276770-hv431fbnfn7ofkdf3eec0a7enep9139o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5jKuH4Qj7EiS_NdQFusNfmEL6hmfsWZw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
